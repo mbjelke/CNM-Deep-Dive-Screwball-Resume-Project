@@ -1,0 +1,44 @@
+@model ScrewballResume.Models.Accomplishment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Accomplishment</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="AccomplishmentID" />
+        <div class="form-group">
+            <label asp-for="JobID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="JobID" class="form-control" asp-items="ViewBag.JobID"></select>
+                <span asp-validation-for="JobID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Accomp" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Accomp" class="form-control" />
+                <span asp-validation-for="Accomp" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to Accomplishments List</a><br/>
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

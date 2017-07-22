@@ -1,0 +1,31 @@
+@model ScrewballResume.Models.Qualification
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Qualification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Skill)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Skill)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Address1)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.QualificationID">Edit</a> |
+    <a asp-action="Index">Back to Qualifications List</a><br />
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>

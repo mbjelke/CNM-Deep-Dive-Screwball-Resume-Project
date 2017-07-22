@@ -1,0 +1,52 @@
+@model IEnumerable<ScrewballResume.Models.Accomplishment>
+
+@{
+    ViewData["Title"] = "Manage Accomplishments";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New a new accomplishment to associate with a Job</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+				Applicant
+			</th>
+			<th>
+                @Html.DisplayNameFor(model => model.Job)
+            </th>    
+            <th>
+                    @Html.DisplayNameFor(model => model.Accomp)
+                </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Job.Applicant.FullName)
+			</td>
+			<td>
+                @Html.DisplayFor(modelItem => item.Job.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accomp)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AccomplishmentID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AccomplishmentID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AccomplishmentID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+<a asp-controller="Jobs" asp-action="Index">Back to Jobs List</a><br/>
+<a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>

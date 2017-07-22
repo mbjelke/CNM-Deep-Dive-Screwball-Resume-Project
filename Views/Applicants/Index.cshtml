@@ -1,0 +1,56 @@
+@model IEnumerable<ScrewballResume.Models.Applicant>
+
+@{
+    ViewData["Title"] = "Manage Applicants and Resume Data";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New Applicant Resume</a>
+</p>
+
+<h3>Display Resume For:</h3>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    Applicant Name
+                </th>
+                <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ID">Show Resume</a>   |   
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit Applicant</a>    |   
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete Applicant</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<br/><br/><br/>
+<div>
+    <h3>Manage Resume sections for all applicants:</h3>
+    <ul>
+
+        <li><a asp-area="" asp-controller="Qualifications" asp-action="Index">Qualifications</a></li>
+        <li><a asp-area="" asp-controller="Jobs" asp-action="Index">Jobs</a></li>
+        <li><a asp-area="" asp-controller="Accomplishments" asp-action="Index">Accomplishments for each Job</a></li>
+        <li><a asp-area="" asp-controller="Educations" asp-action="Index">Education</a></li>
+        <li><a asp-area="" asp-controller="Affiliations" asp-action="Index">Affiliations</a></li>
+        <li><a asp-area="" asp-controller="Certifications" asp-action="Index">Certifications</a></li>
+        <li><a asp-area="" asp-controller="References" asp-action="Index">References</a></li>
+
+    </ul>
+</div>
+
+<br/><br/><br/>
+<div>In a perfect world, where I had more time and if CNM didn't wipe all my data off the school computer, I'd have made this prettier, more user friendly.  As it is, I'm simply demonstrating that I can throw the required functionality on the website.</div>

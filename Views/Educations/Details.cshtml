@@ -1,0 +1,67 @@
+@model ScrewballResume.Models.Education
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Education</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrgName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrgName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.From)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.From)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.To)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.To)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.isCurrent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.isCurrent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DegreeAttained)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DegreeAttained)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ConcentrationIn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ConcentrationIn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Address1)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.EducationID">Edit</a> |
+    <a asp-action="Index">Back to Education List</a><br />
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>

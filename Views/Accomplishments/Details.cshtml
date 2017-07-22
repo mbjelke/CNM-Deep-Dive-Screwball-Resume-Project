@@ -1,0 +1,31 @@
+@model ScrewballResume.Models.Accomplishment
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accomplishment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Accomp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Accomp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Job)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Job.Company)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AccomplishmentID">Edit</a> |
+    <a asp-action="Index">Back to Accomplishments List</a><br/>
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>

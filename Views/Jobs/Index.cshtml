@@ -1,0 +1,62 @@
+@model IEnumerable<ScrewballResume.Models.Job>
+
+@{
+    ViewData["Title"] = "Manage Jobs for All Applicants";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Add a new Job to the Database</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Applicant
+            </th>
+            <th>
+               Company, Title
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                @Html.DisplayFor(modelItem => item.Applicant.FullName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company), <i>@Html.DisplayFor(modelItem => item.Title)</i><br/>
+                @Html.DisplayFor(modelItem => item.Description)<br/><br/>
+                <ul>
+                    @foreach (var acitem in item.Accomplishments)
+                    {
+                        <li>@Html.DisplayFor(modelItem => acitem.Accomp)</li>
+                    }
+                </ul>
+            </td>
+     
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)<br/>
+                @Html.DisplayFor(modelItem => item.FromYear) - @Html.DisplayFor(modelItem => item.ToYear)
+            </td>
+
+
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.JobID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.JobID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.JobID">Delete</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+
+

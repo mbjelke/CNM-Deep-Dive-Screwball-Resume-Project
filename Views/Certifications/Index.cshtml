@@ -1,0 +1,43 @@
+@model IEnumerable<ScrewballResume.Models.Certification>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New Certification for an Applicant</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>Applicant</th>
+                <th>Certification</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Applicant.FullName)
+                
+            </td>
+            <td>
+                <b>Certification:</b> @Html.DisplayFor(modelItem => item.CertName), <b>Issued by:</b> @Html.DisplayFor(modelItem => item.CertAuthority)<br/>
+                <b>License Num: </b>@Html.DisplayFor(modelItem => item.LicenseNum), <b>Valid: </b>  @Html.DisplayFor(modelItem => item.From) - @Html.DisplayFor(modelItem => item.To)<br/>
+                <b>Cert URL: </b> @Html.DisplayFor(modelItem => item.CertURL)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CertificationID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CertificationID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CertificationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>

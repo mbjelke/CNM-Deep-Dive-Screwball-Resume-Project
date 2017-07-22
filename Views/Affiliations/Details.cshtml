@@ -1,0 +1,67 @@
+@model ScrewballResume.Models.Affiliation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Affiliation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AffilOrg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AffilOrg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.From)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.From)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.To)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.To)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AffilURL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AffilURL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCurrent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsCurrent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Address1)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.AffiliationID">Edit</a> |
+    <a asp-action="Index">Back to Affiliations List</a><br />
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>

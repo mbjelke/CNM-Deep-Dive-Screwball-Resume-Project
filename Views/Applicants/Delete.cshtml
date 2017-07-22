@@ -1,0 +1,190 @@
+@model ScrewballResume.Models.Applicant
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    @*<h4>Applicant</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address1) @Html.DisplayFor(model => model.Address2)    |    @Html.DisplayFor(model => model.CityStateZip)<br />
+        </dd>
+        <dt>
+
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Phone)    |     @Html.DisplayFor(model => model.Email)    |    @Html.DisplayFor(model => model.Website)<br /><br />
+        </dd>
+
+        <dt>
+            Social:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LinkedIn)    |    @Html.DisplayFor(model => model.Facebook)    |    @Html.DisplayFor(model => model.Twitter)<br /><br />
+        </dd>
+
+        <dt>
+            Statement:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProfessionalStatement)<br />
+        </dd>
+
+        @*Show the qualifications that are associated with this applicant*@
+        <dt>
+
+        </dt>
+        <dd>
+            <b><br />My Mad Skillz:</b>
+            <ul>
+                @foreach (var qitem in Model.Qualifications)
+                {
+                    <li>@Html.DisplayFor(modelItem => qitem.Skill)</li>
+                }
+            </ul><br />
+
+        </dd>
+
+
+        @*Show the jobs that are associated with this applicant*@
+        <dt>
+            <br />My Street Cred:
+        </dt>
+        <dd>
+            <table class="table">
+
+                @foreach (var item in Model.Jobs)
+                {
+                    <tr>
+                        <td>
+                            <b>@Html.DisplayFor(modelItem => item.Company)</b> - <i>@Html.DisplayFor(modelItem => item.Title)</i><br />
+                            @Html.DisplayFor(modelItem => item.Description)
+                            <ul>
+                                @foreach (var acitem in item.Accomplishments)
+                                {
+                                    <li>@Html.DisplayFor(modelItem => acitem.Accomp)</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Location)<br />
+                            @Html.DisplayFor(modelItem => item.FromYear) - @Html.DisplayFor(modelItem => item.ToYear)
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </dd>
+
+
+        @*Show the Educations (cringe) that are associated with this applicant*@
+        <dt>
+            I has Education:
+        </dt>
+        <dd>
+            <table>
+                <tbody>
+                    @foreach (var editem in Model.Educations)
+                    {
+                        <tr>
+                            <td>
+                                <b>@Html.DisplayFor(modelItem => editem.OrgName)</b>, <i>@Html.DisplayFor(modelItem => editem.Location)</i>, @Html.DisplayFor(modelItem => editem.From) - @Html.DisplayFor(modelItem => editem.To)<br />
+                                @Html.DisplayFor(modelItem => editem.DegreeAttained), Concentration in @Html.DisplayFor(modelItem => editem.ConcentrationIn)<br /><br />
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table><br />
+
+        </dd>
+
+
+
+
+
+        @*Show the certifications that are associated with this applicant*@
+        <dt>
+            And I is Certifiable:
+        </dt>
+        <dd>
+
+            @foreach (var citem in Model.Certifications)
+            {
+                <b> Certification: </b>@Html.DisplayFor(modelItem => citem.CertName)<b>, Issued by: </b> @Html.DisplayFor(modelItem => citem.CertAuthority)<br />
+                <b>License Num: </b> @Html.DisplayFor(modelItem => citem.LicenseNum)<b>, Valid: </b> @Html.DisplayFor(modelItem => citem.From) <b>-</b> @Html.DisplayFor(modelItem => citem.To)<br />
+                <b>URL: </b>@Html.DisplayFor(modelItem => citem.CertURL)<br /><br />
+            }
+            <br />
+
+        </dd>
+
+
+        @*Show the affiliations that are associated with this applicant*@
+
+
+        <dt>
+            <br />Clubz what let me join:
+        </dt>
+        <dd>
+            <table class="table">
+
+                @foreach (var afitem in Model.Affiliations)
+                {
+                    <tr>
+                        <td>
+                            @*Figure out the damn URL hyperlink thing.  FFS it works in the NMUG project*@
+                            <b>@Html.DisplayFor(modelItem => afitem.AffilOrg)</b> (@Html.DisplayFor(modelItem => afitem.Type))   -    <i>@Html.DisplayFor(modelItem => afitem.Role)</i><br />
+                            @Html.DisplayFor(modelItem => afitem.AffilURL)
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => afitem.From) - @Html.DisplayFor(modelItem => afitem.To)
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </dd>
+
+
+        @*Show the References that are associated with this applicant*@
+
+
+        <dt>
+            <br />People I paid <br />to say nice things<br />about me:
+        </dt>
+        <dd>
+            <table class="table">
+
+                @foreach (var ritem in Model.References)
+                {
+                    <tr>
+                        <td>
+                            <b>@Html.DisplayFor(modelItem => ritem.FullName)</b>
+                            <i>@Html.DisplayFor(modelItem => ritem.Phone)</i>
+                            @Html.DisplayFor(modelItem => ritem.Email)<br />
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,67 @@
+@model ScrewballResume.Models.Certification
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Certification</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CertName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CertName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CertAuthority)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CertAuthority)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LicenseNum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LicenseNum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.From)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.From)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.To)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.To)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEternal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsEternal)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CertURL)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CertURL)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Address1)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CertificationID">Edit</a> |
+    <a asp-action="Index">Back to Certifications List</a><br />
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>

@@ -1,0 +1,67 @@
+@model ScrewballResume.Models.Job
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Company)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FromYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FromYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ToYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ToYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCurrent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsCurrent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Address1)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.JobID">Edit</a> |
+    <a asp-action="Index">Back to Jobs List</a><br />
+    <a asp-controller="Applicants" asp-action="Index">Back to Applicants List</a>
+</div>
